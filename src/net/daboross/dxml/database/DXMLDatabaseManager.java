@@ -17,7 +17,7 @@ import org.w3c.dom.Node;
 public class DXMLDatabaseManager {
 
     private final DXMLDatabase mainDatabase;
-    private final Map<String, DXMLDatabase> dataBaseMap = new HashMap<>();
+    private final Map<String, DXMLDatabase> dataBaseMap = new HashMap<String, DXMLDatabase>();
 
     public DXMLDatabaseManager() throws DXMLException {
         mainDatabase = new DXMLDatabase();
@@ -45,8 +45,11 @@ public class DXMLDatabaseManager {
             Node n;
             try {
                 n = mainDatabase.getNode(str);
-            } catch (WrongTypeException | EntryNotFoundException ex) {
-                Logger.getLogger(DXMLDatabaseManager.class.getName()).log(Level.SEVERE, "Exception While getting value from key in DXMLDatabase.getAllNodeKeys()", ex);
+            } catch (WrongTypeException wte) {
+                Logger.getLogger(DXMLDatabaseManager.class.getName()).log(Level.SEVERE, "Exception While getting value from key in DXMLDatabase.getAllNodeKeys()", wte);
+                continue;
+            } catch (EntryNotFoundException enfe) {
+                Logger.getLogger(DXMLDatabaseManager.class.getName()).log(Level.SEVERE, "Exception While getting value from key in DXMLDatabase.getAllNodeKeys()", enfe);
                 continue;
             }
             DXMLDatabase dxmld = new DXMLDatabase(mainDatabase.document, n);

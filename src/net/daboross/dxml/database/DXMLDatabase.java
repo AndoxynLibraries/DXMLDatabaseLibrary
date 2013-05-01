@@ -22,7 +22,7 @@ public class DXMLDatabase {
     protected final Document document;
     private Node root;
     private final Node parentOfRoot;
-    private final Map<String, Node> elementMap = new HashMap<>();
+    private final Map<String, Node> elementMap = new HashMap<String, Node>();
 
     public DXMLDatabase() throws DXMLException {
         try {
@@ -199,7 +199,7 @@ public class DXMLDatabase {
     }
 
     public List<String> getAllNodeKeys() {
-        List<String> list = new ArrayList<>();
+        List<String> list = new ArrayList<String>();
         for (String str : elementMap.keySet()) {
             if (!isString(str)) {
                 list.add(str);
