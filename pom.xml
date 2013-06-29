@@ -23,4 +23,11 @@
             </plugin>
         </plugins>
     </build>
+    <dependencies>
+        <dependency>
+            <groupId>net.daboross.dxml</groupId>
+            <artifactId>DXMLLibrary</artifactId>
+            <version>1.0</version>
+        </dependency>
+    </dependencies>
 </project>
