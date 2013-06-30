@@ -5,12 +5,6 @@
     <packaging>jar</packaging>
     <version>1.0</version>
     <name>DXMLDatabaseLibrary</name>
-    <repositories>
-        <repository>
-            <id>bukkit-repo</id>
-            <url>http://repo.bukkit.org/content/groups/public</url>
-        </repository>
-    </repositories>
     <build>
         <plugins>
             <plugin>
